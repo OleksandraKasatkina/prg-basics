@@ -9,7 +9,7 @@ bonus = bonus_amount / 100
 is_bonus = bonus > 0
 
 if is_bonus == True:
-    total_salary = basic_salary + (basic_salary * is_bonus)
+    total_salary = basic_salary + (basic_salary * bonus)
 else:
     total_salary = basic_salary
 
