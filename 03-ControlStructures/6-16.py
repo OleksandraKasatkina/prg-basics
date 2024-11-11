@@ -18,19 +18,19 @@ program = input('Select washing program: (j)acket, (u)nderwear, (s)hoes: ')
 extra_rinse = input('Extra rinse? (y/n): ')
 extra_spin = input('Extra spin? (y/n): ')
 
-if program == "j":
+if program == 'j':
     total_washing_time += jacket_time
-elif program == "u":
+elif program == 'u':
     total_washing_time += underwear_time
-elif program == "s":
+elif program == 's':
     total_washing_time += shoes_time
 else:
-    print("Invalid washing program selected.")
+    print('Invalid washing program selected.')
 
-if extra_rinse == "y":
+if extra_rinse == 'y':
     total_washing_time += rinse_time
 
-if extra_spin == "y":
+if extra_spin == 'y':
     total_washing_time += spin_time
 
-print(f"Total washing time: {total_washing_time} minutes")
+print(f'Total washing time: {total_washing_time} minutes')
