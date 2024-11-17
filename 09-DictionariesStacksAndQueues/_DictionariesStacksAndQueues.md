@@ -76,7 +76,7 @@ stalj@uek.krakow.pl
       print("Name is not present.")
    ```
 
-1. Create a dictionary describing your mobile phone. Use 6 key-value pairs of data. Then, using 'for' loop, display the contents of the dictionary. To read a key and value, use the items() method. Sample result:
+1. Create a dictionary describing your mobile phone. Use 6 key-value pairs of data. Then, using `for` loop, display the contents of the dictionary. To read a key and value, use the `items()` method. Sample result:
 
    ```python
    mobile = {
@@ -207,7 +207,324 @@ stalj@uek.krakow.pl
    }
    ```
 
-## 2. JSON
+## 2. Set
+
+1. A set is an unordered collection of unique elements. Sets are useful when you want to store a collection of items and ensure that there are no duplicates. Unlike lists or arrays, sets do not maintain the order of the elements, and you cannot access elements by index. They support fast membership tests, union, intersection, difference, and other set operations.
+
+   Set Operations:
+   * `&` (Intersection): Finds common elements between sets.
+   * `|` (Union): Combines all elements from both sets (removes duplicates).
+   * `-` (Difference): Finds elements present in one set but not the other.
+   * `^` (Symmetric Difference): Finds elements present in either set but not in both.
+   * `.issubset()`: Checks if one set is a subset of another.
+
+1. The following program removes duplicate email addresses. Complete and run the program.
+
+   ```python
+   emails = ["john@example.com", "jane@example.com", "john@example.com", "alex@example.com"]
+   unique_emails = set(...)  # Removes duplicates
+   print(unique_emails)
+   ```
+
+1. The following program identifies students who are absent. Complete and run the program.
+
+   ```python
+   all_students = {"Alice", "John", "Sara", "Bob"}
+   attended_students = {"Alice", "Bob"}
+
+   absent_students = ... - ...  # Difference
+   print(absent_students)
+   ```
+
+1. The program below finds spam in received emails. Complete the program that displays those received email addresses that are on the spam list.
+
+   ```python
+   emails_received = {"john@example.com", "spam1@example.com", "spam2@example.com", "jane@example.com"}
+   spam_list = {"spam1@example.com", "spam2@example.com"}
+
+   spam_emails = ... ... ...  # Intersection
+   print("Spam emails:", spam_emails)
+   ```
+
+1. Two contact lists retrieved from a database contain email addresses. Write a program that combines these lists and simultaneously removes duplicates.
+
+   ```python
+   contacts_A = {"john@example.com", "alice@example.com", "bob@example.com"}
+   contacts_B = {"bob@example.com", "michael@example.com", "sara@example.com"}
+
+   merged_contacts = ... ... ...  # Union
+   print("Merged contacts:", merged_contacts)
+   ```
+
+1. In an operating system, each user has some permissions. The user wants to perform some action that requires specific permissions. Write a program that checks whether the user has the required persmission.
+
+   ```python
+   required_permissions = {"read", "write", "execute"}
+   user_permissions = {"read", "write"}
+
+   has_permissions = ...   # subset
+   print(has_permissions)  # Will return False because "execute" is missing.
+   ```
+
+## 3. Stack
+
+1. A stack is a linear data structure that follows the Last In, First Out (LIFO) principle. This means the last element added to the stack is the first one to be removed. Think of a stack as a pile of plates — the last plate you place on the top is the first one you'll take off.
+
+   ![Stack Data Structure](https://media.geeksforgeeks.org/wp-content/uploads/20240606180325/What-is-Stack-(1).webp)
+
+   In the stack_example.py file you can find a simple example of how to create and manipulate a stack. Analyze and run the program. Then, modify a program in which perform the following operations:
+   
+      1. Put 2 on the stack
+      1. Put 3 on the stack
+      1. Put 7 on the stack
+      1. Put 4 on the stack
+      1. Put 1 on the stack
+      1. Put 9 on the stack
+      1. Put 8 on the stack
+      1. Sum the last two numbers of the stack and print result
+      1. Calculate the sum of the remaining stack elements and print the result. Use a 'while' loop.
+      
+1. A `back.py` program simulates the Back key in a web browser (recording the name of new website or displaying the previously visited web site). Complete the program.
+
+1. Define a function that returns true if the brackets `()`, `{}`, `[]` are used correctly in the given expression. Otherwise, the function returns false. Then write a program that checks the correctness of the expressions given below.
+
+   > Use a stack. Read the next characters of the expression. Skip all but the brackets. If it is an opening bracket, put it on the stack. If it is a closing bracket, get the item from the stack and compare whether it is a matching opening bracket.
+
+   ```python
+   import queue
+
+   expression1 = "[(2+3)*4+5]/6-{(7*8)+[4]}" # brackets ok
+   expression2 = "[(2+3]/4)"                 # brackets not correct
+   expression3 = "(2-3*4+(5/6)"              # brackets not correct
+
+   def brackets_ok(expression):
+      ...
+      ...
+      ...
+      return #True if brackets in expression are ok of False otherwise
+
+   if brackets_ok(expression1):
+      print(...)
+   else
+      ...
+
+   if brackets_ok(expression2):
+   ...
+   ...
+   ```
+
+1. Write a program that converts any natural number to a binary number. Use the stack. To convert a number, divide the number by 2, each time taking the remainder of the division and putting the remainder on the stack. Repeat the division until the number you are dividing is zero. Then pop and display all values from the stack. Sample result for number 18:
+
+   |Division|Remainder|
+   | :-: | :-: |
+   |18 / 2 = 9|0|
+   |9 / 2 = 4|1|
+   |4 / 2 = 2|0|
+   |2 / 2 = 1|0|
+   |1  / 2 = 0|1|
+
+   ```
+   Natural number: 18
+   Binary number: 10010 
+   ```
+
+## 4. Queue
+
+1. A queue is a linear data structure that follows the First In, First Out (FIFO) principle. This means that the first element added to the queue will be the first one to be removed. A queue operates similarly to a real-life queue, such as a line of people waiting for a service — the person who arrives first is served first.
+
+   ![Queue Data Structure](https://media.geeksforgeeks.org/wp-content/uploads/20240606165428/Introduction-to-Queue-(2).webp)
+
+   In the `queue_example.py` file you can find a simple example of how to create and manipulate a queue. Analyze and run the program.
+
+1. Using a queue, write a program that manages a queue of files to print.
+
+   ```python
+   import queue
+
+   # creates a queue of files to print
+   files_to_print = queue.Queue()
+
+   while True:
+      print('1. Add file to print')
+      print('2. Print file')
+      print('0. Quit')
+      menu = input('Select an option: ')
+      ...
+      ...
+      
+      if menu == '1':
+         file_name = input('Enter file name to print: ')
+         # add new file to the end of the queue 
+      ...
+
+      elif ...:
+         if # print queue not empty
+            file_to_print = ...
+            print(f'File {file_to_print} is currently being printed. Please wait!')
+         else:
+            print(...)
+
+      elif menu == '0':
+         break
+   ```
+
+## 5. Practice Makes Perfect
+
+1. Read the chapter in your class textbook that covers the topics in this section.
+
+1. Watch the video on using dictionaries in Python:
+
+   <https://youtube.com/playlist?list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-> 
+
+1. Write a program to translate words from English to Polish. The user enters a word in English from the keyboard. The program displays the translation of the word or information that the translation is unavailable.
+
+   ```python
+   translations = {
+      'computer': 'komputer',
+      'mouse': 'myszka',
+      'keyboard': 'klawiatura',
+      'printer': 'drukarka'
+   }
+   ...
+   ...
+   ...
+   ```
+
+1. A dictionary contains course names along with the number of hours. Write a program that calculates and prints the total number of hours. Sample results:
+
+   ```
+   The total number of hours in the winter semester is …
+   ```
+
+   ```python
+   winter_semester = {
+      "math":60,
+      "programming":30,
+      "history":15
+   }
+   ```
+
+1. Write a program that counts how many times each word appears in a paragraph. 
+
+   > Hint: Check the dictionary to see if the next word appears in it. If so, increase the number of times the word appears by 1. You can easily split a paragraph into individual words using the `split()` method. Search the Internet for how to use it.
+
+   ```python
+   paragraph = "cat dog mouse cat rat cat mouse"
+   ...
+   ...
+   ```
+
+1. The program contains two dictionaries with personal data:
+
+   ```python
+   basic_data = {
+      "name":"Barbara",
+      "age":21
+   }
+
+   advanced_data = {
+      "status":"student",
+      "married":False,
+      "interest":["reading","swimming"]
+   }
+   ```
+
+   Write a program that creates a dictionary called `person` containing data from the two other dictionaries (five key-value pairs). Print the contents of the ‘person’ dictionary.
+
+1. A program contains two functions:
+   1. `hotel_list(hotels)` that returns a list of hotel names, separated by a comma sign
+   1. `avg_price(hotels)` that returns the average room price for a given list of hotels, rounded to an integer value
+
+   Write a program that calculates and displays the average price for a room in hotels in Krakow and Sopot and indicates in which cities hotels are cheaper. Sample result:
+
+   ```
+   Hotels in Krakow: …,…,…,…
+   Average hotel price in Krakow: …
+   Hotels in Sopot: …,…,…,…
+   Average hotel price in Sopot: …
+   Cheaper hotels in: …
+   ```
+
+   ```python
+   hotels_in_Krakow = [
+      {"name":"Sky","price":320.00},
+      {"name":"Metropol","price":480.00},
+      {"name":"New Port","price":420.00},
+      {"name":"Aparthotel","price":390.00}
+   ]
+
+   hotels_in_Sopot = [
+      {"name":"Focus","price":510.00},
+      {"name":"Aqua","price":345.00},
+      {"name":"La Boutique","price":390.00},
+      {"name":"Marina","price":410.00}
+   ]
+   ```
+
+1. Write a program to calculate the total cost of a shopping cart using a price list.
+
+   ```python
+   # Price list
+   prices = {'milk': 1.49, 'butter': 2.09, 'juice': 1.19, 'bread': 1.99}
+
+   # Shopping cart with quantities
+   cart = {'juice': 3, 'bread': 1, 'milk': 2}
+
+   # Calculate total cost
+   ...
+   ...
+   ```
+
+1. A traffic camera records passing vehicles. The camera saves their registration numbers in the file `vehicle.txt`. Write a program that calculates and prints how many registered cars come from each province of Poland. The list of provinces and the corresponding first letters of the vehicle registration numbers are contained in the file `province.csv`.
+
+   > Hint: use the dictionary containing the letters corresponding to the provinces and the numbers of vehicles whose first letters of the registration number match the letters of the province.
+
+1. Watch the video on how to deal with JSON files in Python:
+
+   <https://youtu.be/pTT7HMqDnJw?feature=shared> 
+
+
+1. Write a program to record voting. Voting results are saved in the voting.json file with the structure below. The program takes a person's name from the keyboard and increases the number of votes for that person by 1. If this is a new person, they are added to the list with a vote count of 1. You can run the program multiple times to add additional votes to the json file.
+
+   ```python
+   {
+      person_name: number of votes,
+      person_name: number of votes,
+      ...
+      ...
+   }
+
+   # Read the contents of the json file
+   ...
+   
+   # Vote for a person
+   person_name = input('Name of the person you are voting for:')
+   ...
+ 
+   # Save voting data to json file
+   ...
+   ```
+
+1. Define a function that takes a string as input and uses a stack to reverse it. Then, write a program to reverse any text entered from the keyboard.
+   
+   > Hint: Push each character of the string onto the stack, then pop characters to form the reversed string.
+
+1. Search the Internet and familiarise yourself with RPN (Reverse Polish Notation). Then, write a program that calculates RPN expressions. RPN can be conveniently evaluated using a stack structure. A user can enter from the keyboard any number, an operator (+ - \* / ) or the equal sign (=).
+
+   1. If the entered value is a number, push the number on to the stack
+   1. If the entered value is an operator, pop two items from the top of the stack, do the calculation, and push the result of the operation on to the stack.
+   1. If the entered value is an equal sign, pop the final result from the stack and display the result of calculation.
+
+   Then, using the program, calculate the value of RPN expressions:
+
+   |Expression|RPN (Reverse Polish Notation)|
+   | :- | :- |
+   |2 + 3 =|2 3 + =|
+   |2 \* (4 + 1)|2 4 1 + \* =|
+   |(2 + 3) \* ( 4 + 5) =|2 3 + 4 5 + \* =|
+   |8 / (3 + 1) \* (3 - 2 + 4) = |8 3 1 + / 3 2 – 4 + \* =|
+
+1. Write a program that supports customer service in an office. Use the queue. Each new customer receives a ticket with an automatically assigned consecutive number and is added to the end of the queue. The next customer to be served is taken from the beginning of the queue.
 
 1. JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. It is often used to transmit data between a server and a web application, as well as to store structured data.
 
@@ -332,169 +649,7 @@ stalj@uek.krakow.pl
    ...
    ```
 
-## 3, Stack
-
-1. A stack is a linear data structure in which data is added to the top of the stack and is retrieved from the top of the stack. Familiarize yourself in more detail with this data structure. Explain the concept of LIFO.
-
-   ![Stack Data Structure](https://media.geeksforgeeks.org/wp-content/uploads/20240606180325/What-is-Stack-(1).webp)
-
-1. The following functions are necessary to handle the stack:
-
-   ```
-   push() - to put an item on the stack
-   pop() - to pull an item from the stack
-   empty()  - to remove all items from the stack
-   ```
-
-   In the stack.py file you can find a simple implementation of the stack using a Python list. Note the definition of the defined functions. What actions do these functions perform? Then write a program, in which, import the module stack.py and do the following:
-   
-      1. Display stack
-      1. Put the number 2 on the stack
-      1. Put the number 14 on the stack
-      1. Put the number 9 on the stack
-      1. Display stack
-      1. Get element from stack
-      1. Display stack
-      1. Put the number 31 on the stack
-      1. Put the number 6 on the stack
-      1. Display stack
-      1. Get two elements from stack
-      1. Display stack
-
-1. Write a program that converts any natural number to a binary number. Use the stack. To convert a number, divide the number by 2, each time taking the remainder of the division and putting the remainder on the stack. Repeat the division until the number you are dividing is zero. Then pop and display all values from the stack. Sample result for number 18:
-
-   |Division|Remainder|
-   | :-: | :-: |
-   |18 / 2 = 9|0|
-   |9 / 2 = 4|1|
-   |4 / 2 = 2|0|
-   |2 / 2 = 1|0|
-   |1  / 2 = 0|1|
-
-   ```
-   Natural number: 18
-   Binary number: 10010 
-   ```
-
-1. A back.py program simulates the Back key in a web browser (displaying the previously viewed web site). Complete the program.
-
-## 5. Practice Makes Perfect
-
-1. Read the chapter in your class textbook that covers the topics in this section.
-
-1. Watch the video on using dictionaries in Python:
-
-   <https://youtube.com/playlist?list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-> 
-
-1. Write a program to translate words from English to Polish. The user enters a word in English from the keyboard. The program displays the translation of the word or information that the translation is unavailable.
-
-   ```python
-   translations = {
-      'computer': 'komputer',
-      'mouse': 'myszka',
-      'keyboard': 'klawiatura',
-      'printer': 'drukarka'
-   }
-   ...
-   ...
-   ...
-   ```
-
-1. A dictionary contains course names along with the number of hours. Write a program that calculates and prints the total number of hours. Sample results:
-
-   ```
-   The total number of hours in the winter semester is …
-   ```
-
-   ```python
-   winter_semester = {
-      "math":60,
-      "programming":30,
-      "history":15
-   }
-   ```
-
-1. Write a program that counts how many times each word appears in a paragraph. 
-
-   > Hint: Check the dictionary to see if the next word appears in it. If so, increase the number of times the word appears by 1. You can easily split a paragraph into individual words using the split() method. Search the Internet for how to use it.
-
-   ```python
-   paragraph = "cat dog mouse cat rat cat mouse"
-   ...
-   ...
-   ```
-
-1. The program contains two dictionaries with personal data:
-
-   ```python
-   basic_data = {
-      "name":"Barbara",
-      "age":21
-   }
-
-   advanced_data = {
-      "status":"student",
-      "married":False,
-      "interest":["reading","swimming"]
-   }
-   ```
-
-   Write a program that creates a dictionary called ‘person’ containing data from the two other dictionaries (five key-value pairs). Print the contents of the ‘person’ dictionary.
-
-1. A program contains two functions:
-   1. hotel_list(hotels) that returns a list of hotel names, separated by a comma sign
-   1. avg_price(hotels) that returns the average room price for a given list of hotels, rounded to an integer value
-
-   Write a program that calculates and displays the average price for a room in hotels in Krakow and Sopot and indicates in which cities hotels are cheaper. Sample result:
-
-   ```
-   Hotels in Krakow: …,…,…,…
-   Average hotel price in Krakow: …
-   Hotels in Sopot: …,…,…,…
-   Average hotel price in Sopot: …
-   Cheaper hotels in: …
-   ```
-
-   ```python
-   hotels_in_Krakow = [
-      {"name":"Sky","price":320.00},
-      {"name":"Metropol","price":480.00},
-      {"name":"New Port","price":420.00},
-      {"name":"Aparthotel","price":390.00}
-   ]
-
-   hotels_in_Sopot = [
-      {"name":"Focus","price":510.00},
-      {"name":"Aqua","price":345.00},
-      {"name":"La Boutique","price":390.00},
-      {"name":"Marina","price":410.00}
-   ]
-   ```
-
-1. Write a program to calculate the total cost of a shopping cart using a price list.
-
-   ```python
-   # Price list
-   prices = {'milk': 1.49, 'butter': 2.09, 'juice': 1.19, 'bread': 1.99}
-
-   # Shopping cart with quantities
-   cart = {'juice': 3, 'bread': 1, 'milk': 2}
-
-   # Calculate total cost
-   ...
-   ...
-   ```
-
-1. A traffic camera records passing vehicles. The camera saves their registration numbers in the file vehicle.txt. Write a program that calculates and prints how many registered cars come from each province of Poland. The list of provinces and the corresponding first letters of the vehicle registration numbers are contained in the file province.csv.
-
-   > Hint: use the dictionary containing the letters corresponding to the provinces and the numbers of vehicles whose first letters of the registration number match the letters of the province.
-
-1. Watch the video on how to deal with JSON files in Python:
-
-   <https://youtu.be/pTT7HMqDnJw?feature=shared> 
-
-
-1. The website <https://api.nbp.pl/en.html> contains data on exchange rates published by the National Bank of Poland. The service provides data both in json and xml formats. Display the last ten Euro exchange rates in json format in a web browser. Then, save the data to the euro.json file. Finally, write a program that displays the data from the euro.json file in the following format:
+1. The website <https://api.nbp.pl/en.html> contains data on exchange rates published by the National Bank of Poland. The service provides data both in json and xml formats. Display the last ten Euro exchange rates in json format in a web browser. Then, save the data to the `euro.json` file. Finally, write a program that displays the data from the `euro.json` file in the following format:
 
    ```
    Date            Buying Rate     Selling Rate
@@ -505,84 +660,5 @@ stalj@uek.krakow.pl
    ...
    ```
 
-1. Write a program to record voting. Voting results are saved in the voting.json file with the structure below. The program takes a person's name from the keyboard and increases the number of votes for that person by 1. If this is a new person, they are added to the list with a vote count of 1. You can run the program multiple times to add additional votes to the json file.
-
-   ```python
-   {
-      person_name: number of votes,
-      person_name: number of votes,
-      ...
-      ...
-   }
-
-   # Read the contents of the json file
-   ...
-   
-   # Vote for a person
-   person_name = input('Name of the person you are voting for:')
-   ...
- 
-   # Save voting data to json file
-   ...
-   ```
-
-1. Define a function that takes a string as input and uses a stack to reverse it. Then, write a program to reverse any text entered from the keyboard.
-   
-   > Hint: Push each character of the string onto the stack, then pop characters to form the reversed string.
-
-1. Search the Internet and familiarise yourself with RPN (Reverse Polish Notation). Then, write a program that calculates RPN expressions. RPN can be conveniently evaluated using a stack structure. A user can enter from the keyboard any number, an operator (+ - \* / ) or the equal sign (=).
-
-   1. If the entered value is a number, push the number on to the stack
-   1. If the entered value is an operator, pop two items from the top of the stack, do the calculation, and push the result of the operation on to the stack.
-   1. If the entered value is an equal sign, pop the final result from the stack and display the result of calculation.
-
-   Then, using the program, calculate the value of RPN expressions:
-
-   |Expression|RPN (Reverse Polish Notation)|
-   | :- | :- |
-   |2 + 3 =|2 3 + =|
-   |2 \* (4 + 1)|2 4 1 + \* =|
-   |(2 + 3) \* ( 4 + 5) =|2 3 + 4 5 + \* =|
-   |8 / (3 + 1) \* (3 - 2 + 4) = |8 3 1 + / 3 2 – 4 + \* =|
-
-1. Define a function that returns true if the brackets `()`, `{}`, `[]` are used correctly in the given expression. Otherwise, the function returns false. Then write a program that checks the correctness of the expressions given below.
-
-   ```python
-   [(2+3)*4+5]/6-{(7*8)+[4]}=
-   [(2+3]/4)
-   ```
-
-   > Use a stack. Read the next characters of the expression. Skip all but the brackets. If it is an opening bracket, put it on the stack. If it is a closing bracket, pop the item from the stack and compare whether it is a matching opening bracket.
-
-1. A queue is a linear data structure in which new data is added to the end of the queue, and data is retrieved from the beginning of the queue for further processing. Familiarize yourself in more detail with this data structure. 
-
-   ![Queue Data Structure](https://media.geeksforgeeks.org/wp-content/uploads/20240606165428/Introduction-to-Queue-(2).webp)
-
-
-1. Following the example of stack.py, create a queue.py module in which define queue handling. Then, write a program that imports the queue.py module. Add and remove values from the queue. Display its content.
-
-1. Using the queue.py module you created, write a program that manages a queue of files to print.
-
-   ```python
-   import queue
-
-   while True:
-      print('1. Add file to print')
-      print('2. Print file')
-      print('3. View list of files to print')
-      print('0. Quit')
-      menu = input('Select an option: ')
-      ...
-      ...
-      if menu == '1':
-         file_name = input('\nEnter file name to print: ')
-         # add new file to the end of the queue 
-      ...
-      ...
-      ...
-
-      elif menu == '0':
-         break
-   ```
-
-1. Write a program that supports customer service in an office. Use the queue module. Each new customer receives a ticket with an automatically assigned consecutive number and is added to the end of the queue. The next customer to be served is taken from the beginning of the queue.
+   > Hint: If you are interested in API and Rest API issues, read the following article:
+   > <https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/>
