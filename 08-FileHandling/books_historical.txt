@@ -1,0 +1,8 @@
+Title,Author,Genre,Year
+War and Peace,Leo Tolstoy,Historical,1869
+Les Misérables,Victor Hugo,Historical,1862
+The Grapes of Wrath,John Steinbeck,Historical,1939
+A Tale of Two Cities,Charles Dickens,Historical,1859
+Gone with the Wind,Margaret Mitchell,Historical,1936
+Beloved,Toni Morrison,Historical,1987
+The Kite Runner,Khaled Hosseini,Historical,2003

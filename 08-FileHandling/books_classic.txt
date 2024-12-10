@@ -1,0 +1,4 @@
+Title,Author,Genre,Year
+The Great Gatsby,F. Scott Fitzgerald,Classic,1925
+Great Expectations,Charles Dickens,Classic,1861
+Of Mice and Men,John Steinbeck,Classic,1937
