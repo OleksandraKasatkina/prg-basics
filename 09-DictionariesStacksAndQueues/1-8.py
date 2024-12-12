@@ -19,15 +19,20 @@ for key,value in price_list.items():
 total = 0
 for key,value in price_list.items():
    total += value
-print(f"The total value of the products before the discount: {total}")
+print(f"The total value of the products before the discount: ${total:.2f}")
 
-discount_value = 0
-for key,value in price_list.items():
-   discount_value = value * 0,9
-   print("A list of products and their prices after the discount:")
-   print(f"{key}: {discount_value}")
+discounted_price_list = {}
+for key, value in price_list.items():
+    discounted_price = round(value * 0.9, 2)  # Apply 10% discount
+    discounted_price_list[key] = discounted_price
 
+# Step 4: Print the list of products and their prices after the discount
+print("\nA list of products and their prices after the discount:")
+for product, discounted_price in discounted_price_list.items():
+    print(f"{product}: ${discounted_price:.2f}")
+
+   
 discount_total = 0
 for key,value in price_list.items():
-   discount_total += discount_value
-print(f"The total value of the products after the discount: {discount_total}")
+   discount_total += discounted_price
+print(f"The total value of the products after the discount: ${discount_total}")
