@@ -1,11 +1,12 @@
 # class definition
 class Book():
-    def __init__(self,title,author,pages):
+    def __init__(self,title,author,pages,price=48):
         self.title = title
         self.author = author
         self.pages = pages
         self.current_page = 1
         self.is_open = False
+        self.price = price 
 
     def open(self):
         self.is_open = True
@@ -20,6 +21,7 @@ class Book():
         print(f"My favourite book is {self.title}.")
         print(f"Written by {self.author}.")
         print(f"This book has {self.pages} pages.")
+        print(f"The price of this book is €{self.price}.")
         if self.is_open:
             print(f"I am just reading the book, page {self.current_page}.")
         else:
